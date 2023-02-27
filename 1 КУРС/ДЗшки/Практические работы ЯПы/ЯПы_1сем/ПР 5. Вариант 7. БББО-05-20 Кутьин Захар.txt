@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main()
+{                   
+	unsigned char u, x, e, w, r;
+	unsigned int UnitStateWord;
+	printf("Vvedite identifikator polzovatelya(0..255):");
+	scanf_s("%hhd", &u);
+	printf("\nVvedite pravo chitat(0/1):");
+	scanf_s("%hhd", &r);
+	printf("\nVvedite pravo pisat(0/1):");
+	scanf_s("%hhd", &w);
+	printf("\nVvedite pravo vupolnyat programnuy kod(0/1):");
+	scanf_s("%hhd", &e);
+	printf("\nVvedite yavnuy zapret dostupa(0/1):");
+	scanf_s("%hhd", &x);
+	UnitStateWord = (u & 0xFF) << 8;
+	UnitStateWord |= (r & 1) << 7;
+	UnitStateWord |= (w & 1) << 6;
+	UnitStateWord |= (e & 1) << 5;
+	UnitStateWord |= x & 1;
+	printf("\nSlovo sostoyania ystroistva = %04x\n", UnitStateWord);
+	printf("Vvedite sostoyanie ystroistva =");
+	scanf_s("%04x", &UnitStateWord);
+	u = (UnitStateWord & 65280)>>8;
+	r = (UnitStateWord >> 7) & 1;
+	w = (UnitStateWord >> 6) & 1;
+	e = (UnitStateWord >> 5) & 1;
+	x = UnitStateWord & 1;
+	printf("Identifikator polzovatelya:%d\n", u);
+	printf("Pravo chitat:%d\n", r);
+	printf("Pravo pisat:%d\n", w);
+	printf("Pravo vupolnyat programnuy kod:%d\n", e);
+	printf("Yavnuy zapret dostupa:%d\n", x);
+}

@@ -1,0 +1,154 @@
+#include <iostream>
+#include <windows.h>
+#include <stdio.h>
+
+using namespace std;
+
+struct Spis {
+	Spis* next;
+	char* str = new char[10];
+	int id = 0;
+};
+Spis *pCurrent, 
+*pStart,
+*pEnd,
+*pTemp;
+
+int fmenu(char* x[])
+{
+	int q;
+	for (int i = 0; i < 4; i++)
+		cout << x[i]; 
+	cin >> q;
+	return q; 
+}
+
+char m1[] = { "1.Ввод элемента:\n"};
+char m2[] = { "2.Вывод списка:\n"};
+char m3[] = { "3.Удалить элемент по его значению:\n"};
+char m4[] = { "4.Выйти из программы:\n"};
+char* menu[] = { m1,m2,m3,m4};
+
+
+int count0 = -1;
+
+void push() {
+	pCurrent = new Spis;
+	cout << endl << "Введите значение элемента(строка из 10 символов): ";
+	cin >> pCurrent->str;
+	if (count0 == -1) 
+	{
+		count0 += 1;
+		pStart = pCurrent; 
+		pEnd = pCurrent; 
+		pCurrent->next = pCurrent; 
+		pTemp = pCurrent; 
+	}
+	else
+	{
+		count0 += 1;
+		pCurrent->id = count0;
+		pEnd = pCurrent; 
+		pCurrent->next = nullptr;
+		pTemp->next = pCurrent;
+		pTemp = pCurrent; 
+	}
+}
+
+void output(){
+	if (count0 < 0) {
+		cout << "Элементов в списке нет" << endl;
+		system("pause"); return;
+	}
+	cout << endl << "Элементы списка:" << endl;
+	pCurrent = pStart;
+	for (int i = 0; i <= count0; i++)
+	{
+		cout << pCurrent->str << endl;
+		pCurrent = pCurrent->next;
+	}
+}
+
+void del(char* line) {
+	int flag = 0;
+	if (count0 < 0) {
+		cout << "Элементов в списке нет" << endl;
+		system("pause"); return;
+	}
+	pCurrent = pStart;
+	for (int i = 0; i <= count0; i++)
+	{
+		int check = strcmp((pCurrent->str), line);
+		if (check == 0)
+		{
+			flag = 1;
+			if (pCurrent->id == 0) {
+				pStart = pCurrent->next;
+			}
+			else if (pCurrent->id == count0) {
+				pTemp = pStart;
+				for (int j = 0; j <= count0; j++) {
+					if (pTemp->id == count0 - 1) {
+						pTemp->next = nullptr;
+						pEnd = pTemp;
+						break;
+					}
+					pTemp = pTemp->next;
+				}
+			}
+			else {
+				pTemp = pStart;
+				for (int j = 0; j <= count0; j++) {
+					if (pTemp->id == pCurrent->id - 1) {
+						pTemp->next = pCurrent->next;
+						break;
+					}
+					pTemp = pTemp->next;
+				}
+			}
+
+			count0 -= 1;
+			delete pCurrent;
+			return;
+		}
+		else
+			pCurrent = pCurrent->next;
+	}
+	if (!flag) cout << "Элемента " << line << " нет в списке" << endl;
+}
+
+void exit() { 
+	exit(1); 
+}
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	
+	char* line = new char[10];
+
+	for (; 1;){
+		cout << "--------------------------------------" << endl;
+		switch (fmenu(menu))
+		{
+		case 1:
+			push(); break;
+		case 2:
+			output(); break;
+		case 3:
+			cout << "Введите line для поиска и дальнейшего удаления: ";
+			cin >> line;
+			del(line); break;
+		case 4:
+			exit();
+		default:{
+			cout << "неверен пункт меню, повторите";
+			system("pause");
+			break;
+			}
+		}
+	}
+		
+	delete[] line;
+	return 0;
+}

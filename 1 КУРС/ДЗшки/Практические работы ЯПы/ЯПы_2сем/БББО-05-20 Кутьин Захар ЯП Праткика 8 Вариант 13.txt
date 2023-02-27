@@ -1,0 +1,84 @@
+#include <iostream>
+#include <windows.h>
+#include <math.h>
+
+using namespace std;
+
+class Proga {
+private:
+	double x;
+	double y;
+	double z;
+	double* g;
+public:
+	Proga() {
+		x = 0;
+		y = 0;
+		z = 0;
+		g = new double;
+	}
+	~Proga() {
+		delete g;
+	}
+	void set(double _x, double _y, double _z);
+	void print();
+	void run();
+};
+
+void Proga::set(double _x, double _y, double _z) {
+	x = _x;
+	y = _y;
+	z = _z;
+}
+
+void Proga::print() {
+	cout << x << " | " << y << " | " << z << " | " << *g << endl;
+}
+
+void Proga::run() {
+	*g = ((pow(y, x + 1.0)) / (pow(fabs(y - 2.0), 1.0 / 3.0) + 3.0)) + (x + (y / 2.0)) / (2.0 * (fabs(x + y))) * pow(x + 1.0, (-1.0 / sin(z)));
+}
+
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	double x;
+	double y;
+	double z;
+
+	cout << "Введите значение x: ";
+	cin >> x;
+	cout << "Введите значение y: ";
+	cin >> y;
+	cout << "Введите значение z: ";
+	cin >> z;
+
+	cout << "1. Прямой Вызов" << endl;
+	Proga obj1;
+	obj1.set(x, y, z);
+	obj1.run();
+	obj1.print();
+
+	cout << "2. Косвенный Вызов" << endl;
+	Proga* p1 = &obj1;
+	p1->set(x, y, z);
+	p1->run();
+	p1->print();
+
+	cout << "3. Прямой Динамический Вызов" << endl;
+	Proga* p2 = new Proga;
+	(*p2).set(x, y, z);
+	(*p2).run();
+	(*p2).print();
+
+	cout << "4. Косвенный Динамический Вызов" << endl;
+	Proga* p3 = new Proga;
+	p3->set(x, y, z);
+	p3->run();
+	p3->print();
+
+	delete p2;
+	delete p3;
+}

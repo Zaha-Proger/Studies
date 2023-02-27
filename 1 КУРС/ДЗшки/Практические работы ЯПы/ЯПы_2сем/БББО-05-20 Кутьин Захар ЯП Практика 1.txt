@@ -1,0 +1,78 @@
+#include <iostream>
+#include <fstream>
+#include <windows.h>
+
+using namespace std;
+
+struct st {
+    int year;
+    int ball;
+    char fio[20];
+};
+
+int main()
+{
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    st t1[5] = {
+    2000, 4, "ivanovskii",
+    2001, 5, "serov",
+    2000, 3, "sidorov",
+    1999, 4, "savicin",
+    2000, 5, "ternova"
+    };
+    st t2[5];
+    ifstream studin;
+    ofstream studout;
+    studout.open("students.txt", ios_base::out | ios_base::binary);
+    if (!studout.is_open()) {
+        cout << "Ошибка в чтении файла";
+    }
+    else {
+        cout << "Файл открыт на чтение\n\n";
+        for (int i = 0; i < 5; i++)
+            studout << t1[i].year << ' ' << t1[i].ball << ' ' << t1[i].fio << '\n';
+    }
+    studout.close();
+    studin.open("students.txt", ios_base::in | ios_base::binary);
+    int j = 0;
+    if (!studin.is_open())
+    {
+        cout << "Ошибка в чтении файла";
+    }
+    else
+    {
+        cout << "Файл открыт \n\n";
+        while (!studin.eof())
+        {
+            studin >> t2[j].year >> t2[j].ball >> t2[j].fio;
+            j++;
+        }
+        studin.close();
+        for (int i = 0; i < 5; i++) {
+            if ((t2+i)->ball == 4) {
+                (t2+i)->ball = 5;
+            }
+        }
+    }
+
+    studout.open("students.txt", ios_base::binary | ios_base::out);
+
+    for (int i = 0; i < 5; i++) {
+        studout << t2[i].year << ' ' << t2[i].ball << ' ' << t2[i].fio << '\n';
+    }
+    studout.close();
+
+    studin.open("students.txt", ios_base::in | ios_base::binary);
+    j = 0;
+    while (!studin.eof())
+    {
+        studin >> t2[j].year >> t2[j].ball >> t2[j].fio;
+        j++;
+    }
+    studin.close();
+    for (int k = 0; k < 5; k++)
+        cout << t2[k].year << ':' << t2[k].ball << ':' << t2[k].fio << '\n';
+
+    return 0;
+}

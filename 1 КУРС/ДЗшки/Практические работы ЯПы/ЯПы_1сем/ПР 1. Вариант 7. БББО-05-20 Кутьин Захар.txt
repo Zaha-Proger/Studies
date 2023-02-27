@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main()
+{
+    char name1[3], name2[4], name3[2], m3[4];
+    int m1, m2;
+    double p1, p2, p3;
+    int t1, t2, t3;
+
+    printf("1. Vvedite: Vid transporta, marshrut, protyagennost marshruta, vremya v doroge>");
+    scanf_s("%s %d %lf %d", name1, 3, &m1, &p1, &t1);
+    printf("\n2. Vvedite: Vid transporta, marshrut, protyagennost marshruta, vremya v doroge>");
+    scanf_s("%s %d %lf %d", name2, 4, &m2, &p2, &t2);
+    printf("\n3. Vvedite: Vid transporta, marshrut, protyagennost marshruta, vremya v doroge>");
+    scanf_s("%s %s %lf %d", name3, 2, m3, 4, &p3, &t3);
+
+    printf("\n---------------------------------------------------------------------");
+    printf("\n| Vedomost obshestvennogo transporta                                |");
+    printf("\n|-------------------------------------------------------------------|");
+    printf("\n| Vid transporta    | Marshrut    | Protyagennost     | Vremya v    |");
+    printf("\n|                   |             | marshruta(km)     | doroge(min) |");
+    printf("\n|-------------------|-------------|-------------------|-------------|");
+    printf("\n| %3s               | %2d          | %5.2f             | %2d          |", name1, m1, p1, t1);
+    printf("\n|-------------------|-------------|-------------------|-------------|");
+    printf("\n| %4s              | %2d          | %4.1f              | %2d          |", name2, m2, p2, t2);
+    printf("\n|-------------------|-------------|-------------------|-------------|");
+    printf("\n| %2s                |%4s         | %4.1f              |%3d          |", name3, m3, p3, t3);
+    printf("\n|-------------------------------------------------------------------|");
+    printf("\n|Primechanie: Tr - tramvay, Ts - trolleibus, A - avtobus            |");
+    printf("\n---------------------------------------------------------------------");
+
+    return(0);
+}

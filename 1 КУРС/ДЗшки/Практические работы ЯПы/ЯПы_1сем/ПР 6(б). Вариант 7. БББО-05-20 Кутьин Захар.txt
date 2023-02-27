@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include "malloc.h"
+
+int main()
+{
+	int* a, * pol, * otr;
+	int countpol = 0, countotr = 0, countnol = 0, n;
+	printf("Vvedite kolichestvo elementov massiva>");
+	scanf_s("%d", &n);
+	if (n < 5 || n > 20)
+	{
+		while (n < 5 || n>20)
+		{
+			printf("Chislo ne iz zadannogo diapazona, povtorite vvod n>");
+			scanf_s("%d", &n);
+		}
+	}
+	a = (int*)malloc(n * sizeof(int));
+	pol = (int*)malloc(n * sizeof(int));
+	otr = (int*)malloc(n * sizeof(int));
+	for (int i = 0; i < n; i++)
+	{
+		printf("Vvedite element a[%d]=", i);
+		scanf_s("%d", &a[i]);
+		if (a[i] < -100 || a[i]>100)
+		{
+			while (a[i] < -100 || a[i]>100)
+			{
+				printf("Chislo ne iz zadannogo diapazona, povtorite vvod a[%d]=", i);
+				scanf_s("%d", &a[i]);
+			}
+		}
+	}
+	for (int i = 0; i < n; i++)
+	{
+		if (a[i] > 0)
+		{
+			pol[countpol] = a[i];
+			countpol++;
+		}
+		else if (a[i] < 0)
+		{
+			otr[countotr] = a[i];
+			countotr++;
+		}
+		else
+		{
+			countnol++;
+		}
+	}
+	for (int i = 0; i < countpol; i++)
+		a[i] = pol[i];
+	for (int i = countpol; i < (countpol + countnol); i++)
+		a[i] = 0;
+	for (int i = (countnol + countpol),  j = 0; j < countotr; i++, j++)
+		a[i] = otr[j];
+	for (int i = 0; i < n; i++)
+		printf("\n a[%d]=%d", i, a[i]);
+
+	return 0;
+}

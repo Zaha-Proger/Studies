@@ -1,0 +1,14 @@
+﻿  Course_Work_97_Relise.cpp
+C:\Users\Lenovo\source\repos\Course_Work_97_Relise\Course_Work_97_Relise\Course_Work_97_Relise.cpp(30,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Lenovo\source\repos\Course_Work_97_Relise\Course_Work_97_Relise\Course_Work_97_Relise.cpp(43,12): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Lenovo\source\repos\Course_Work_97_Relise\Course_Work_97_Relise\Course_Work_97_Relise.cpp(46,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Lenovo\source\repos\Course_Work_97_Relise\Course_Work_97_Relise\Course_Work_97_Relise.cpp(54,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Lenovo\source\repos\Course_Work_97_Relise\Course_Work_97_Relise\Course_Work_97_Relise.cpp(68,13): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Lenovo\source\repos\Course_Work_97_Relise\Course_Work_97_Relise\Course_Work_97_Relise.cpp(101,27): warning C4244: =: преобразование "std::streamoff" в "int", возможна потеря данных
+C:\Users\Lenovo\source\repos\Course_Work_97_Relise\Course_Work_97_Relise\Course_Work_97_Relise.cpp(151,28): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Lenovo\source\repos\Course_Work_97_Relise\Course_Work_97_Relise\Course_Work_97_Relise.cpp(206,31): warning C4244: =: преобразование "std::streamoff" в "int", возможна потеря данных
+C:\Users\Lenovo\source\repos\Course_Work_97_Relise\Course_Work_97_Relise\Course_Work_97_Relise.cpp(259,28): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Lenovo\source\repos\Course_Work_97_Relise\Course_Work_97_Relise\Course_Work_97_Relise.cpp(669,25): warning C4244: =: преобразование "std::streamoff" в "int", возможна потеря данных
+C:\Users\Lenovo\source\repos\Course_Work_97_Relise\Course_Work_97_Relise\Course_Work_97_Relise.cpp(1431,28): warning C4244: =: преобразование "std::streamoff" в "int", возможна потеря данных
+C:\Users\Lenovo\source\repos\Course_Work_97_Relise\Course_Work_97_Relise\Course_Work_97_Relise.cpp(1523,28): warning C4244: =: преобразование "std::streamoff" в "int", возможна потеря данных
+  Course_Work_97_Relise.vcxproj -> C:\Users\Lenovo\source\repos\Course_Work_97_Relise\Debug\Course_Work_97_Relise.exe

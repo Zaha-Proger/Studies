@@ -1,0 +1,48 @@
+#include <stdio.h>
+#define vvod(x) scanf_s("%d", &x)
+#define vivod1 printf("Vvedite kolichestvo elementov massiva>")
+#define vivod2(x) printf("Vvedite element a[%d]=", x)
+#define vivod3(x,y) printf("\n a[%d]=%d", x, y)
+#define ciklif1(x) if (a[i] > 0)
+#define ciklif2(x) if (a[i] == 0)
+#define ciklif3(x) if (a[i] < 0)
+#define cikler(x,y,z) if(x < y || x > z) while (x < y || x > z){printf("Chislo ne iz zadannogo diapazona, povtorite vvod>");scanf_s("%d", &x);}
+#define ciklf1(x) for (int i = 0; i < x; i++)
+#define ciklf2(x,y,z) for (int i = x; i < (y); i++) a[i] = z 
+#define ciklf3(x,y,z) for (int i = (x), j = 0; j < y; i++, j++) a[i]= z
+int main()
+{
+	int a[20], pol[20], otr[20], n;
+	int countpol = 0, countotr = 0, countnol = 0, j;
+	vivod1;
+	vvod(n);
+    cikler(n, 5, 20)
+	ciklf1(n)
+	{
+		vivod2(i);
+		vvod(a[i]);
+	    cikler(a[i], -100, 100)
+	}
+	ciklf1(n)
+		ciklif1(a[i])
+		{
+			pol[countpol] = a[i];
+			countpol++;
+		}
+	ciklf1(n)
+		ciklif2([i])
+			countnol++;
+	ciklf1(n)
+		ciklif3(a[i])
+		{
+			otr[countotr] = a[i];
+			countotr++;
+		}
+    ciklf2(0, countpol, pol[i]);
+	ciklf2(countpol, countpol + countnol, 0);
+	ciklf3(countnol + countpol, countotr, otr[j]);
+	ciklf1(n)
+		vivod3(i, a[i]);
+
+	return 0;
+}

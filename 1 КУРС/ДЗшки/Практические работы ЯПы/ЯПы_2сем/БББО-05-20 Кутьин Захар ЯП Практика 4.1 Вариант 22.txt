@@ -1,0 +1,42 @@
+#include <windows.h>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	int n;//Размерность массива
+	cout << "Введите размерность массива A: ";
+	cin >> n;
+	int* A = new int[n];
+	int* B = new int[n];
+	for (int i = 0; i < n; i++) {
+		cout << "Введите A[" << i << "]:";
+		cin >> *(A + i);
+	}
+	cout << "------------------------------" << endl;
+	int count = 0;
+	for (int i = 0; i < n; i++) {
+		if (*(A + i) < 0) {
+			*(B + count) = *(A + i);
+			count++;
+		}
+	}
+	if (count != 0) {
+		for (int i = 0; i < count; i++) {
+			cout << "B[" << i << "]:";
+			cout << *(B + i) << endl;
+
+		}
+	}
+	else
+	{
+		cout << "В массиве А нет отрицательных чисел";
+	}
+	delete[] A;
+	delete[] B;
+
+	return 0;
+}

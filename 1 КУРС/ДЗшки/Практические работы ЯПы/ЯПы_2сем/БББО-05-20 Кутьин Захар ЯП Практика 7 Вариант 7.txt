@@ -1,0 +1,87 @@
+#include <windows.h>
+#include <iostream>
+
+using namespace std;
+
+class Massiv {
+public:
+	int* A = nullptr;
+	int N = 0;
+	Massiv(int n) {
+		N = n;
+		A = new int [n];
+		for (int i = 0; i < n; i++) {
+			printf("Введите элемент массива [%d]: ", i);
+			cin >> A[i];
+		}
+	}
+	Massiv(int* mas, int n) {
+		N = n;
+		A = new int[n];
+		for (int i = 0; i < n; i++) {
+			A[i] = mas[i];
+		}
+	}
+	
+	void print() {
+		cout << "__________________________________________\n\n";
+		for (int i = 0; i < N; i++) {
+			cout << "Элемент массива [" << i << "]: " << A[i] << endl;
+		}
+		cout << "__________________________________________\n\n";
+	}
+
+	~Massiv() {
+		delete[] A;
+		delete mas;
+	};
+	friend int operator --(Massiv& temp){
+		int min = temp.A[0];
+		for (int i = 1; i < temp.N; i++){
+			if (temp.A[i] < min) {
+				min = temp.A[i];
+			}
+		}
+		return min;
+	}
+	Massiv* mas = nullptr;
+	Massiv* operator | (Massiv& temp) {
+        int lenNew = 0;
+        if (this->N < temp.N) {
+            lenNew = N;
+        }
+        else lenNew = temp.N;
+        int* c = new int[lenNew];
+        for (int i = 0; i < lenNew; i++) {
+            c[i] = (this->A[i] > temp.A[i]) ? temp.A[i] : this->A[i];
+        }
+        mas = new Massiv(c, lenNew);
+        return mas;
+    }
+};
+
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	int len1, len3;
+	cout << "Введите размер массива 1: ";
+	cin >> len1;
+	Massiv m1(len1);
+	Massiv m2(m1.A,len1);
+	cout << "Массив 1: " << endl;
+	m1.print();
+	cout << "Массив 2, созданный копированием массива 1: " << endl;
+	m2.print();
+	cout << "Введите размер массива 3: ";
+	cin >> len3;
+	Massiv m3(len3);
+	cout << "Массив 3: " << endl;
+	m3.print();
+	cout << "Наименьший элемент массива 3: " << --m3 << endl;
+	Massiv* m4 = (m2 | m3);
+	cout << "Новый массив из 3го и 2го: " << endl;
+	m4->print();
+	
+	return 0;
+}

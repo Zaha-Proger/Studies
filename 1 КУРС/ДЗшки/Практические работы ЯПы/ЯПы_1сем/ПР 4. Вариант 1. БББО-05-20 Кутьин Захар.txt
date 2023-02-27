@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main()
+{
+	double x, y;
+	bool a, b, c, d, e, f;
+	printf("Vvedite koordinatu x, y: \n");
+	scanf_s("%lf %lf", &x, &y);
+	a = x >= 0 && x <= 1 && y >= -2 && y <= 0 && y <= 2 * x - 2;
+	b = x >= 0 && x <= 1 && y >= 0 && y <= 2 && y >= -2 * x + 2;
+	c = x >= -2 && x <= 0 && y >= 0 && y <= 2 && x * x + y * y <= 4 && y >= -x;
+        d = x >= -2 && x <= 0 && y >= 0 && y <= 2 && x * x + y * y >= 4 && y <= -x;
+	e = x >= -2 && x <= 0 && y >= -2 && y <= 0 && x * x + y * y >= 4 && y >= x;
+	f = x >= -2 && x <= 0 && y >= -2 && y <= 0 && x * x + y * y <= 4 && y <= x;
+	if (a != 0 || b != 0 || c != 0 || d != 0 || e != 0 || f != 0)
+		printf("Popadanie v zadannuy oblast");
+	else
+		printf("Net popadanie v zadannuy oblast");
+}

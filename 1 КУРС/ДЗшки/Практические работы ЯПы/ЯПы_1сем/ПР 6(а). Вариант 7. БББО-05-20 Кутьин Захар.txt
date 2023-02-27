@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+int main()
+{
+	int a[20], pol[20], otr[20], n=0;
+	int countpol=0, countotr=0, countnol=0, j;
+	int *p, *k = &n, *l = pol, *h = otr;
+	printf("Vvedite kolichestvo elementov massiva>");
+	scanf_s("%d", k);
+	if ((*k < 5) || (*k > 20))
+	{
+		while ((*k < 5) || (*k>20))
+		{
+			printf("Chislo ne iz zadannogo diapazona, povtorite vvod n>");
+			scanf_s("%d", k);
+		}
+	}
+	p = a;
+	for (int i = 0; i < *k; i++)
+	{
+		printf("Vvedite element a[%d]=", i);
+		scanf_s("%d", (p + i));
+		if ((*(p + i)) < -100 || (*(p + i) >100))
+		{
+			while ((*(p + i) < -100) || (*(p + i)>100))
+			{
+				printf("Chislo ne iz zadannogo diapazona, povtorite vvod a[%d]=", i);
+				scanf_s("%d", (p + i));
+			}
+		}
+	}
+	for (int i = 0; i < *k; i++) {
+		if (*(p + i) < 0)
+		{
+			*(h + countotr) = *(p + i);
+			countotr++;
+		}
+		else if (*(p + i) > 0) {
+			*(l + countpol) = *(p + i);
+			countpol++;
+		}
+		else {
+			countnol++;
+		}
+	}
+	l = pol;
+	h = otr;
+	for (int i = 0; i < countpol; i++) 
+		*(p + i) = *(l + i);
+	for (int i = countpol; i <= countnol + countpol; i++) 
+		*(p + i) = 0;
+	for (int i = (countpol + countnol), j = 0; j < countotr; j++, i++) 
+		*(p + i) = *(h + j);
+	for (int i = 0; i < *k; i++)
+		printf("\n a[%d]=%d", i, *(p + i));
+
+	return 0;
+}

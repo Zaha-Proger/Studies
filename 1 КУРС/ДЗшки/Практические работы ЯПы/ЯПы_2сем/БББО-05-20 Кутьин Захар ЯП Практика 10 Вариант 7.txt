@@ -1,0 +1,104 @@
+#include <iostream.>
+#include <stdlib.h>
+#include <windows.h>
+
+using namespace std;
+
+class X
+{
+protected:
+    int* x1, * x2;
+
+public:
+
+    X(int _x1, int _x2)
+    {
+        x1 = new int;
+        x2 = new int;
+        *x1 = _x1;
+        *x2 = _x2;
+    }
+
+    virtual void getParam()
+    {
+        cout << "Класс X" << endl;
+        cout << "x1 = " << *x1 << endl << "x2 = " << *x2 << endl;
+    }
+
+    virtual void setParam()
+    {
+        cout << "Введите x1: ";
+        cin >> *x1;
+        cout << "Введите x2: ";
+        cin >> *x2;
+    }
+
+    ~X()
+    {
+        delete x1;
+        delete x2;
+    }
+};
+
+class Y :public X
+{
+private:
+    int* y;
+
+public:
+
+    Y(int _x1, int _x2, int _y) : X(_x1, _x2)
+    {
+        y = new int;
+        *y = _y;
+    }
+
+    virtual void getParam()
+    {
+        cout << "Класс Y" << endl;
+        cout << "x1=" << *x1 << endl << "x2=" <<  *x2 << endl <<  "y=" << *y << endl;
+    }
+
+    virtual void setParam()
+    {
+        cout << "Введите x1: ";
+        cin >> *x1;
+        cout << "Введите x2: ";
+        cin >> *x2;
+        cout << "Введите y: ";
+        cin >> *y;
+    }
+
+    ~Y()
+    {
+        delete y;
+    }
+
+    void Run()
+    {
+        cout << "Результат:" << (*x1) * (*y) + (*x2) << endl;
+    }
+};
+
+int main()
+{
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
+    X* t;
+    t = new X(0, 0);
+    t->getParam();
+    t->setParam();
+    t->getParam();
+
+    delete t;
+
+    t = new Y(0, 0, 0);
+    t->getParam();
+    t->setParam();
+    t->getParam();
+
+    ((Y*)t)->Run();
+
+    delete t;
+}

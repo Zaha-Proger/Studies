@@ -1,0 +1,50 @@
+#include <iostream>
+#include <Windows.h>
+
+using namespace std;
+
+struct tr{
+    char fam[20];
+    char name[20];
+    char ot[20];
+    int cout;
+    int ves[20];
+};
+
+int main()
+{
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    tr pas[5];
+    for (int i = 0; i < 5; i++) {
+        cout<<"Введите Фамилию, Имя, Отчество:\n";
+        cin >> pas[i].fam >> pas[i].name >> pas[i].ot;
+        cout<< "Введите количество багажа:\n";
+        cin >> pas[i].cout;
+        int n = pas[i].cout;
+        for (int j = 0; j < n; j++) {
+            cout << "Введите вес багажа " << j+1 << ":" << endl;
+            cin >> pas[i].ves[j];
+        }
+    }
+    cout << "---------------------------------------------------------" << endl;
+    for (int i = 0; i < 5; i++) {
+        cout << "Фамилия, Имя, Отчество:\n" << pas[i].fam <<" "<< pas[i].name <<" "<< pas[i].ot << endl;
+        cout << "Количество  багажа:\n" << pas[i].cout << endl;
+        int n = pas[i].cout;
+        for (int j = 0; j < n; j++) {
+            cout << "Вес багажа(кг)"<< j+1 << ":"<< pas[i].ves[j] << endl;
+        }
+    } 
+    cout << "---------------------------------------------------------" << endl;
+    int k = 0;
+    for (int i = 0; i < 5; i++) {
+        if (pas[i].cout == 1 && pas[i].ves[0] == 20)
+        {
+            cout << "Фамилия, Имя, Отчество:\n" << pas[i].fam << " " << pas[i].name << " " << pas[i].ot << endl;
+            k += 1;
+        }   
+    }
+    if (k == 0)
+        cout << "Данного пассажира не нашлось" << endl;
+}

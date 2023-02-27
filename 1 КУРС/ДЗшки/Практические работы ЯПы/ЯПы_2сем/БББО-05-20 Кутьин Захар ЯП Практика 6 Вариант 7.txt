@@ -1,0 +1,89 @@
+#include <iostream>
+#include <Windows.h>
+
+using namespace std;
+
+class A {
+protected:
+	double* pX = &x;
+	double* pY = &y;
+	double* pZ = &z;
+	
+	double Proiz(double a, double b, double c) {
+		double proiz = a * b * c;
+		return proiz;
+	}
+
+private:
+	static double x;
+	static double y;
+	static double z;
+
+	double delnadva(double a) {
+		double a2 = a / 2;
+		return a2;
+	}
+
+	double Kube(double a) {
+		double kube = a * a * a;
+		return kube;
+	}
+
+public:
+	double* pMas[3] = {pX,pY,pZ};
+	
+	double Sum() {
+		double sum = *pMas[0] + *pMas[1] + *pMas[2];
+		return sum;
+	}
+
+	double kube_proiz = Proiz(x, y, z);
+	double sum = Sum();
+	double kubeX = Kube(x);
+	double kubeY = Kube(y);
+	double kubeZ = Kube(z);
+	double x2 = delnadva(x);
+	double y2 = delnadva(y);
+	double z2 = delnadva(z);
+	int X = whole_part(x);
+	int Y = whole_part(y);
+	int Z = whole_part(z);
+
+
+	int whole_part(double a) {
+		int A = a;
+		return A;
+	}
+
+	void printRes() {
+		cout << "Числа для работы: ";
+		cout << x << "\t" << y << "\t" << z << endl;
+		cout << "Сумма чисел: ";
+		cout << sum << endl;
+		cout << "Произведение чисел: ";
+		cout << kube_proiz << endl;
+		cout << "Кубы чисел: ";
+		cout << kubeX << "\t" << kubeY << "\t" << kubeZ << endl;
+		cout << "Числа, деленные на 2: ";
+		cout << x2 << "\t" << y2 << "\t" << z2 << endl;
+		cout << "Целые части чисел: ";
+		cout << X << "\t" << Y << "\t" << Z << endl;
+	}
+};
+
+double A::x = 2.2;
+double A::y = 4.5;
+double A::z = 3.1;
+
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	A* obj = new A;
+	obj->pMas[0];
+	obj->pMas[1];
+	obj->pMas[2];
+	obj->printRes();
+	delete obj;
+	return 0;
+}
