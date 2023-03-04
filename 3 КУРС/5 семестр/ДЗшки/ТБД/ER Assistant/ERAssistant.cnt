@@ -1,0 +1,30 @@
+:Base ERAssistant.hlp
+:Title ER-Assistant
+1 Introduction=INTRO
+1 Quick Start=QUICKSTART
+1 Keyboard Shortcuts=SHORTCUT_KEYS
+1 Additional Features
+2 Additional Features=ADDITIONAL_FEATURES
+2 Consistency and Completeness Check=ERROR_CHECK
+2 Diagram Summary=SUMMARY_WINDOW
+2 Select and Connect Cursor Modes=CURSOR_MODE
+2 Options=OPTIONS_DIALOG
+2 Design Justification Report=DJ_REPORT
+2 Diagram Notes=LABEL_DIALOG2
+1 Menu and Tool Bars
+2 Menu Bar=MENUBAR
+2 File Menu=FILE_MENU
+2 Edit Menu=EDIT_MENU
+2 View Menu=VIEW_MENU
+2 Insert Menu=INSERT_MENU
+2 Mode Menu=MODE_MENU
+2 Window Menu=WINDOW_MENU
+2 Help Menu=HELP_MENU
+2 Toolbar=TOOLBAR
+1 Building Diagram
+2 Building the entity relationship diagram=BUILDING_DIAGRAM
+2 Entity Dialog Box=ENTITY_DIALOG
+2 Attribute Dialog Box=ATTRIBUTE_DIALOG_BOX
+2 Relationship Dialog Box=RELATIONSHIP_DIALOG
+2 Diagram Note Dialog Box=LABEL_DIALOG
+2 Design Justification Dialog Box=DESIGN_JUSTIFICATION_DIALOG
