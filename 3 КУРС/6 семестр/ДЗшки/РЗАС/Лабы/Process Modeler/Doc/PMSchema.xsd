@@ -1,0 +1,3695 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:tns="http://www.ca.com/ProcessModeler" elementFormDefault="qualified" targetNamespace="http://www.ca.com/ProcessModeler" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="DT_char">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="DT_short">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:short" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DT_long">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DT_enum">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:short" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DT_double">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:double" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DT_LPSTR">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="DT_LPNewStr">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="DT_CString">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="DT_NewCString">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="DT_LPLOGFONT">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DT_BOOL">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:short" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DT_ref">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\{[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}\}\+[0-9a-fA-F]{8}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DT_LPPMID">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\{[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}\}\+[0-9a-fA-F]{8}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DT_Byte">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DT_sDate">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:short" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DT_POINT">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DT_RECT">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DT_sSelList">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:short" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DT_sCharArray">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="DT_sShortArray">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:short" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DT_sLongArray">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DT_sDoubleArray">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:double" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DT_sStrArray">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="DT_sByteArray">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DT_sPointArray">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\([0-9]*,[0-9]*\)" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DT_sRefArray">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\{[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}\}\+[0-9a-fA-F]{8}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:element name="PMSwimLaneLineColorRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMSwimLaneTextColorRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMSwimLaneBKColorRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMTextBlockColorReference">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDiagramTitleColorReference">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMArrowNameColorReference">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMArrowTextColorReference">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMTextColorReference">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBoxBackgroundColorReference">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMSwimLaneTextFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBorderSystemDefaultFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMReportFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMTextBlockFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMNodeTreeFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDiagramFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDiagramTitleFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBorderUserFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBorderSystemFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDecompDiagramArrowFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDecompDiagramActivityFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMContextDiagramArrowFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMContextDiagramActivityFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMCreationBuild">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMCreationDataRev">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMERSourceType">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBitmapJustification">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMTxtHgtToBmpHgt">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_double" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDictSettingStringsRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_sStrArray">
+          <xs:attribute name="index" type="xs:nonNegativeInteger" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMReportMode">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMMergeControlFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_BOOL" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMMergeMasterModelFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_BOOL" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMMergeSubModelFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_BOOL" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMNoExternalNameMergeFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_BOOL" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMNoDatastoreNameMergeFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_BOOL" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMNoArrowNameMergeFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_BOOL" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMMethodologyCode">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBpxPath">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMNote">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMFilename">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMSystemLastRevisionDate">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_sDate">
+          <xs:attribute name="member_name" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMNextJunctionNumber">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRootActivityNumber">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMOrgDrawStyle">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDrawStyle">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBitmapRefList">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_sLongArray">
+          <xs:attribute name="index" type="xs:nonNegativeInteger" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMShapeIdList">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_sLongArray">
+          <xs:attribute name="index" type="xs:nonNegativeInteger" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMHdrFtrType5">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMHdrFtrType4">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMHdrFtrType3">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMHdrFtrType2">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMHdrFtrType1">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMHdrFtrType0">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMActiveAreaDimension">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_POINT">
+          <xs:attribute name="member_name" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMOriginOffset">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_POINT">
+          <xs:attribute name="member_name" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDimension">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_POINT">
+          <xs:attribute name="member_name" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMShowIDEF0TitleFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMShowIDEF0KitFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDurationDecimalPlaces">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMFrequencyDecimalPlaces">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMTimeUnit">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMCostDecimalPlaces">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMCurrencyPlacement">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMCurrencySymbol">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMCostUnit">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMShowArrowBreakFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMSortArrowsFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMAutospaceArrowsFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMFitActivityTextInBoxFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMAllowBoxResizeFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMAllowBoxMovementFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMOffpageRefIdFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMActBoxCornerDisplayType">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMLongDateFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDisplayBoxHighlightingFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDisplaySquigglesFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDisplayLeafCornersFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDisplayShadowsFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMShowTunnelFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMShowActivityCostFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDisplayColorsFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMShowICOMCodeFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMShowArrowNameFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMShowExternalNumberingFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_BOOL" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMShowDatastoreNumberingFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_BOOL" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMShowActivityNumberingFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_BOOL" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMShowExternalPrefixFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_BOOL" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMShowDatastorePrefixFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_BOOL" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDiagramNumberConventionFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMShowDiagramPrefixFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMNextBoxNumber">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMNextExternalNumber">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMNextDatastoreNumber">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMActivityNumberConventionFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMNoAutoRenumberFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_BOOL" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMShowActivityPrefixFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMPrefix">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMUserLastRevisionDate">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_sDate">
+          <xs:attribute name="member_name" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMCreatedDate">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_sDate">
+          <xs:attribute name="member_name" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMStatusString">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMSource">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMScope">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDescriptionString">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMViewpoint">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMPurpose">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDataUsageRules">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMAuthorsInitials">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMAuthor">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMTimeFrame">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMProject">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Name">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMMergeChangeFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMNameColorReference">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMObjectsString">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMConstraintsString">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMFacts">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDefinitionString">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMAttributeRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMEntityRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDeleteFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMUpdateFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMReadFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMCreateFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMActivityRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMArrowType">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_char" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMNullFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMInsertFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMValueOfRefSet">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_sRefArray">
+          <xs:attribute name="index" type="xs:nonNegativeInteger" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMValueOfRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDefinedByRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMSequenceUDPValue">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_short" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMIntUDPValue">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMStringUDPValue">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDateUDPValue">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_sDate">
+          <xs:attribute name="member_name" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMFloatUDPValue">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_double" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDatastoreNumber">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMArrowRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBoxType">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRRGAssocRefList">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_sRefArray">
+          <xs:attribute name="index" type="xs:nonNegativeInteger" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBackgroundColorReference">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMTitleColorReference">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRightRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMLeftRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBottomRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMTopRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMScenerio">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMFEOFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMZoomScale">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDisplayOffset">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_POINT">
+          <xs:attribute name="member_name" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMVersion">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMSwimLaneRoleRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMSwimLaneUDPRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMSwimLaneRoleType">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMCurrentDiagram">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDefaultArrowFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDefaultActivityFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMParentDiagramRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRepresentedActivityRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMArcRadius">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMTextFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMTextString">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDecompositionNumber">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMCNumber">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDiagramNumber">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMPageNumberString">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMTitleFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMUsedAtString">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDecompositionOfRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMSwimLaneStyle">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMIsASwimLaneFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMArrowColorReference">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDrawSquiggleFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMLabelConnectPoint">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_POINT">
+          <xs:attribute name="member_name" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMSegmentConnectPoint">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_POINT">
+          <xs:attribute name="member_name" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMTextBoundingBox">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_RECT">
+          <xs:attribute name="member_name" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMLineWidth">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMArrowDrawingStyleFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMSinkConnectionRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMSourceConnectionRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMSinkTunnelStyleFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMSourceTunnelStyleFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMLabeledSegment">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMVertices">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_sPointArray">
+          <xs:attribute name="index" type="xs:nonNegativeInteger" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMShapeId">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBitmapRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMObjectFontReference">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMPersistentBoxNumber">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMUowIdNumber">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBoxCoordinates">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_RECT">
+          <xs:attribute name="member_name" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMPointLocation">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_POINT">
+          <xs:attribute name="member_name" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMIsPurposeFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMIsViewpointFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMExternalRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMOffpageRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerDisplayFlags">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerLabelColorRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerUnitsColorRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerMinorDivColorRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerMajorDivColorRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerBKColorRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerStyle">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerUnitsLabelFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerUnitsTextFontRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerUnitsUDPRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerMinorIncDbl">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_double" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerMajorIncDbl">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_double" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerMinorIncLong">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerMajorIncLong">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerRightValueDbl">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_double" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerRightValueDate">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_sDate">
+          <xs:attribute name="member_name" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerRightValueLong">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerLeftValueDbl">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_double" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerLeftValueDate">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_sDate">
+          <xs:attribute name="member_name" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerLeftValueLong">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRulerLabel">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBPwinGeneratedFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBPWinOnlyFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMERModelRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMEREntityId">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPPMID" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMERDataType">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMParentname">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMERAttributeId">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPPMID" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMExternalNumber">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMFontSize">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMLogfont">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPLOGFONT">
+          <xs:attribute name="member_name" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMParentActivityRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMOverrideCostsFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDuration">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_double" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMFrequency">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_double" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMOverrideLeavesFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMCostCenterRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMCost">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_double" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBoxDisplayFlags">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMOrthogonalFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBitmapHeight">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDefaultBoxWidth">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMNumLevels">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMNumberInBoxFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDrawBoxFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBulletLastFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBoxWidthPrefFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDrawBorderFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMOrgRowId">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMMaxRowBoxCount">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRowBoxCount">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMFirstBoxInRow">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMOrgBoxId">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMShapeColorReference">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMOrgBoxBKColorReference">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRRGAssocRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMOrgBoxParentId">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMOrgBoxHasParent">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMSequenceNumber">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDispInArrowRptFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_BOOL" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDispInActivityRptFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_BOOL" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDispInArrowDispFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_BOOL" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDispInActivityDispFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_BOOL" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMUDPMultiSelectFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMUDPDescription">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDateStyleFlag">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMPrecision">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMValueType">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMCategories">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_sRefArray">
+          <xs:attribute name="index" type="xs:nonNegativeInteger" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMJunctionBoxNumber">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMJunctionBoxTypeString">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPSTR" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBlueIntensity">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMGreenIntensity">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRedIntensity">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_Byte" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBitmapData">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPNewStr" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NameCopy">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_NewCString" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDescriptionStringCopy">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_NewCString" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMImportance">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_long" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMResourceRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRoleRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRoleTypeRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_ref" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMERModelMMId">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="tns:DT_LPPMID" />
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:group name="PMModelPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMSwimLaneLineColorRef" />
+      <xs:element ref="tns:PMSwimLaneTextColorRef" />
+      <xs:element ref="tns:PMSwimLaneBKColorRef" />
+      <xs:element ref="tns:PMTextBlockColorReference" />
+      <xs:element ref="tns:PMDiagramTitleColorReference" />
+      <xs:element ref="tns:PMArrowNameColorReference" />
+      <xs:element ref="tns:PMArrowTextColorReference" />
+      <xs:element ref="tns:PMTextColorReference" />
+      <xs:element ref="tns:PMBoxBackgroundColorReference" />
+      <xs:element ref="tns:PMSwimLaneTextFontRef" />
+      <xs:element ref="tns:PMBorderSystemDefaultFontRef" />
+      <xs:element ref="tns:PMReportFontRef" />
+      <xs:element ref="tns:PMTextBlockFontRef" />
+      <xs:element ref="tns:PMNodeTreeFontRef" />
+      <xs:element ref="tns:PMDiagramFontRef" />
+      <xs:element ref="tns:PMDiagramTitleFontRef" />
+      <xs:element ref="tns:PMBorderUserFontRef" />
+      <xs:element ref="tns:PMBorderSystemFontRef" />
+      <xs:element ref="tns:PMDecompDiagramArrowFontRef" />
+      <xs:element ref="tns:PMDecompDiagramActivityFontRef" />
+      <xs:element ref="tns:PMContextDiagramArrowFontRef" />
+      <xs:element ref="tns:PMContextDiagramActivityFontRef" />
+      <xs:element ref="tns:PMCreationBuild" />
+      <xs:element ref="tns:PMCreationDataRev" />
+      <xs:element ref="tns:PMERSourceType" />
+      <xs:element ref="tns:PMBitmapJustification" />
+      <xs:element ref="tns:PMTxtHgtToBmpHgt" />
+      <xs:element ref="tns:PMDictSettingStringsRef" />
+      <xs:element ref="tns:PMReportMode" />
+      <xs:element ref="tns:PMMergeControlFlag" />
+      <xs:element ref="tns:PMMergeMasterModelFlag" />
+      <xs:element ref="tns:PMMergeSubModelFlag" />
+      <xs:element ref="tns:PMNoExternalNameMergeFlag" />
+      <xs:element ref="tns:PMNoDatastoreNameMergeFlag" />
+      <xs:element ref="tns:PMNoArrowNameMergeFlag" />
+      <xs:element ref="tns:PMMethodologyCode" />
+      <xs:element ref="tns:PMBpxPath" />
+      <xs:element ref="tns:PMNote" />
+      <xs:element ref="tns:PMFilename" />
+      <xs:element ref="tns:PMSystemLastRevisionDate" />
+      <xs:element ref="tns:PMNextJunctionNumber" />
+      <xs:element ref="tns:PMRootActivityNumber" />
+      <xs:element ref="tns:PMOrgDrawStyle" />
+      <xs:element ref="tns:PMDrawStyle" />
+      <xs:element ref="tns:PMBitmapRefList" />
+      <xs:element ref="tns:PMShapeIdList" />
+      <xs:element ref="tns:PMHdrFtrType5" />
+      <xs:element ref="tns:PMHdrFtrType4" />
+      <xs:element ref="tns:PMHdrFtrType3" />
+      <xs:element ref="tns:PMHdrFtrType2" />
+      <xs:element ref="tns:PMHdrFtrType1" />
+      <xs:element ref="tns:PMHdrFtrType0" />
+      <xs:element ref="tns:PMActiveAreaDimension" />
+      <xs:element ref="tns:PMOriginOffset" />
+      <xs:element ref="tns:PMDimension" />
+      <xs:element ref="tns:PMShowIDEF0TitleFlag" />
+      <xs:element ref="tns:PMShowIDEF0KitFlag" />
+      <xs:element ref="tns:PMDurationDecimalPlaces" />
+      <xs:element ref="tns:PMFrequencyDecimalPlaces" />
+      <xs:element ref="tns:PMTimeUnit" />
+      <xs:element ref="tns:PMCostDecimalPlaces" />
+      <xs:element ref="tns:PMCurrencyPlacement" />
+      <xs:element ref="tns:PMCurrencySymbol" />
+      <xs:element ref="tns:PMCostUnit" />
+      <xs:element ref="tns:PMShowArrowBreakFlag" />
+      <xs:element ref="tns:PMSortArrowsFlag" />
+      <xs:element ref="tns:PMAutospaceArrowsFlag" />
+      <xs:element ref="tns:PMFitActivityTextInBoxFlag" />
+      <xs:element ref="tns:PMAllowBoxResizeFlag" />
+      <xs:element ref="tns:PMAllowBoxMovementFlag" />
+      <xs:element ref="tns:PMOffpageRefIdFlag" />
+      <xs:element ref="tns:PMActBoxCornerDisplayType" />
+      <xs:element ref="tns:PMLongDateFlag" />
+      <xs:element ref="tns:PMDisplayBoxHighlightingFlag" />
+      <xs:element ref="tns:PMDisplaySquigglesFlag" />
+      <xs:element ref="tns:PMDisplayLeafCornersFlag" />
+      <xs:element ref="tns:PMDisplayShadowsFlag" />
+      <xs:element ref="tns:PMShowTunnelFlag" />
+      <xs:element ref="tns:PMShowActivityCostFlag" />
+      <xs:element ref="tns:PMDisplayColorsFlag" />
+      <xs:element ref="tns:PMShowICOMCodeFlag" />
+      <xs:element ref="tns:PMShowArrowNameFlag" />
+      <xs:element ref="tns:PMShowExternalNumberingFlag" />
+      <xs:element ref="tns:PMShowDatastoreNumberingFlag" />
+      <xs:element ref="tns:PMShowActivityNumberingFlag" />
+      <xs:element ref="tns:PMShowExternalPrefixFlag" />
+      <xs:element ref="tns:PMShowDatastorePrefixFlag" />
+      <xs:element ref="tns:PMDiagramNumberConventionFlag" />
+      <xs:element ref="tns:PMShowDiagramPrefixFlag" />
+      <xs:element ref="tns:PMNextBoxNumber" />
+      <xs:element ref="tns:PMNextExternalNumber" />
+      <xs:element ref="tns:PMNextDatastoreNumber" />
+      <xs:element ref="tns:PMActivityNumberConventionFlag" />
+      <xs:element ref="tns:PMNoAutoRenumberFlag" />
+      <xs:element ref="tns:PMShowActivityPrefixFlag" />
+      <xs:element ref="tns:PMPrefix" />
+      <xs:element ref="tns:PMUserLastRevisionDate" />
+      <xs:element ref="tns:PMCreatedDate" />
+      <xs:element ref="tns:PMStatusString" />
+      <xs:element ref="tns:PMSource" />
+      <xs:element ref="tns:PMScope" />
+      <xs:element ref="tns:PMDescriptionString" />
+      <xs:element ref="tns:PMViewpoint" />
+      <xs:element ref="tns:PMPurpose" />
+      <xs:element ref="tns:PMDataUsageRules" />
+      <xs:element ref="tns:PMAuthorsInitials" />
+      <xs:element ref="tns:PMAuthor" />
+      <xs:element ref="tns:PMTimeFrame" />
+      <xs:element ref="tns:PMProject" />
+      <xs:element ref="tns:Name" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMModelPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMModelPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMArrowPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMMergeChangeFlag" />
+      <xs:element ref="tns:PMTextColorReference" />
+      <xs:element ref="tns:PMNameColorReference" />
+      <xs:element ref="tns:PMObjectsString" />
+      <xs:element ref="tns:PMConstraintsString" />
+      <xs:element ref="tns:PMFacts" />
+      <xs:element ref="tns:PMDescriptionString" />
+      <xs:element ref="tns:PMNote" />
+      <xs:element ref="tns:PMAuthor" />
+      <xs:element ref="tns:PMStatusString" />
+      <xs:element ref="tns:PMDefinitionString" />
+      <xs:element ref="tns:Name" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMArrowPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMArrowPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMAssociationPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMMergeChangeFlag" />
+      <xs:element ref="tns:PMAttributeRef" />
+      <xs:element ref="tns:PMEntityRef" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMAssociationPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMAssociationPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMCRUDPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMMergeChangeFlag" />
+      <xs:element ref="tns:PMDeleteFlag" />
+      <xs:element ref="tns:PMUpdateFlag" />
+      <xs:element ref="tns:PMReadFlag" />
+      <xs:element ref="tns:PMCreateFlag" />
+      <xs:element ref="tns:PMActivityRef" />
+      <xs:element ref="tns:PMArrowType" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMCRUDPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMCRUDPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMIRUNPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMMergeChangeFlag" />
+      <xs:element ref="tns:PMNullFlag" />
+      <xs:element ref="tns:PMUpdateFlag" />
+      <xs:element ref="tns:PMReadFlag" />
+      <xs:element ref="tns:PMInsertFlag" />
+      <xs:element ref="tns:PMActivityRef" />
+      <xs:element ref="tns:PMArrowType" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMIRUNPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMIRUNPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMUDPInstancePropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMValueOfRefSet" />
+      <xs:element ref="tns:PMValueOfRef" />
+      <xs:element ref="tns:PMDefinedByRef" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMUDPInstancePropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMUDPInstancePropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMUDPValuePropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMSequenceUDPValue" />
+      <xs:element ref="tns:PMIntUDPValue" />
+      <xs:element ref="tns:PMStringUDPValue" />
+      <xs:element ref="tns:PMDateUDPValue" />
+      <xs:element ref="tns:PMFloatUDPValue" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMUDPValuePropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMUDPValuePropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMCostCenterPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMDefinitionString" />
+      <xs:element ref="tns:Name" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMCostCenterPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMCostCenterPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMDataStorePropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMDatastoreNumber" />
+      <xs:element ref="tns:PMEntityRef" />
+      <xs:element ref="tns:PMArrowRef" />
+      <xs:element ref="tns:PMBoxType" />
+      <xs:element ref="tns:PMRRGAssocRefList" />
+      <xs:element ref="tns:PMBackgroundColorReference" />
+      <xs:element ref="tns:PMTextColorReference" />
+      <xs:element ref="tns:PMTitleColorReference" />
+      <xs:element ref="tns:PMObjectsString" />
+      <xs:element ref="tns:PMConstraintsString" />
+      <xs:element ref="tns:PMFacts" />
+      <xs:element ref="tns:PMDescriptionString" />
+      <xs:element ref="tns:PMSource" />
+      <xs:element ref="tns:PMNote" />
+      <xs:element ref="tns:PMAuthor" />
+      <xs:element ref="tns:PMStatusString" />
+      <xs:element ref="tns:PMDefinitionString" />
+      <xs:element ref="tns:Name" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMDataStorePropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMDataStorePropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMDiagramPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMRightRef" />
+      <xs:element ref="tns:PMLeftRef" />
+      <xs:element ref="tns:PMBottomRef" />
+      <xs:element ref="tns:PMTopRef" />
+      <xs:element ref="tns:PMScenerio" />
+      <xs:element ref="tns:PMFEOFlag" />
+      <xs:element ref="tns:PMZoomScale" />
+      <xs:element ref="tns:PMDisplayOffset" />
+      <xs:element ref="tns:PMVersion" />
+      <xs:element ref="tns:PMSwimLaneRoleRef" />
+      <xs:element ref="tns:PMSwimLaneUDPRef" />
+      <xs:element ref="tns:PMSwimLaneRoleType" />
+      <xs:element ref="tns:PMBitmapJustification" />
+      <xs:element ref="tns:PMTxtHgtToBmpHgt" />
+      <xs:element ref="tns:PMHdrFtrType5" />
+      <xs:element ref="tns:PMHdrFtrType4" />
+      <xs:element ref="tns:PMHdrFtrType3" />
+      <xs:element ref="tns:PMHdrFtrType2" />
+      <xs:element ref="tns:PMHdrFtrType1" />
+      <xs:element ref="tns:PMHdrFtrType0" />
+      <xs:element ref="tns:PMDrawStyle" />
+      <xs:element ref="tns:PMMethodologyCode" />
+      <xs:element ref="tns:PMCurrentDiagram" />
+      <xs:element ref="tns:PMDefaultArrowFontRef" />
+      <xs:element ref="tns:PMDefaultActivityFontRef" />
+      <xs:element ref="tns:PMParentDiagramRef" />
+      <xs:element ref="tns:PMRepresentedActivityRef" />
+      <xs:element ref="tns:PMBorderUserFontRef" />
+      <xs:element ref="tns:PMBorderSystemDefaultFontRef" />
+      <xs:element ref="tns:PMTextBlockFontRef" />
+      <xs:element ref="tns:PMArcRadius" />
+      <xs:element ref="tns:PMActiveAreaDimension" />
+      <xs:element ref="tns:PMOriginOffset" />
+      <xs:element ref="tns:PMDimension" />
+      <xs:element ref="tns:PMTextFontRef" />
+      <xs:element ref="tns:PMTextString" />
+      <xs:element ref="tns:PMDecompositionNumber" />
+      <xs:element ref="tns:PMCNumber" />
+      <xs:element ref="tns:PMDiagramNumber" />
+      <xs:element ref="tns:PMStatusString" />
+      <xs:element ref="tns:PMPageNumberString" />
+      <xs:element ref="tns:PMTitleFontRef" />
+      <xs:element ref="tns:PMSystemLastRevisionDate" />
+      <xs:element ref="tns:PMUserLastRevisionDate" />
+      <xs:element ref="tns:PMCreatedDate" />
+      <xs:element ref="tns:PMShowIDEF0TitleFlag" />
+      <xs:element ref="tns:PMShowIDEF0KitFlag" />
+      <xs:element ref="tns:PMUsedAtString" />
+      <xs:element ref="tns:PMDecompositionOfRef" />
+      <xs:element ref="tns:Name" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMDiagramPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMDiagramPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMArrowLabelPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMSwimLaneStyle" />
+      <xs:element ref="tns:PMSwimLaneRoleRef" />
+      <xs:element ref="tns:PMSwimLaneBKColorRef" />
+      <xs:element ref="tns:PMIsASwimLaneFlag" />
+      <xs:element ref="tns:PMArrowNameColorReference" />
+      <xs:element ref="tns:PMArrowColorReference" />
+      <xs:element ref="tns:PMDrawSquiggleFlag" />
+      <xs:element ref="tns:PMArrowRef" />
+      <xs:element ref="tns:PMLabelConnectPoint" />
+      <xs:element ref="tns:PMSegmentConnectPoint" />
+      <xs:element ref="tns:PMTextFontRef" />
+      <xs:element ref="tns:PMTextBoundingBox" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMArrowLabelPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMArrowLabelPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMArrowSegmentPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMLineWidth" />
+      <xs:element ref="tns:PMArrowDrawingStyleFlag" />
+      <xs:element ref="tns:PMSinkConnectionRef" />
+      <xs:element ref="tns:PMSourceConnectionRef" />
+      <xs:element ref="tns:PMSinkTunnelStyleFlag" />
+      <xs:element ref="tns:PMSourceTunnelStyleFlag" />
+      <xs:element ref="tns:PMLabeledSegment" />
+      <xs:element ref="tns:PMVertices" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMArrowSegmentPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMArrowSegmentPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMBoxPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMShapeId" />
+      <xs:element ref="tns:PMBitmapJustification" />
+      <xs:element ref="tns:PMBitmapRef" />
+      <xs:element ref="tns:PMBackgroundColorReference" />
+      <xs:element ref="tns:PMTitleColorReference" />
+      <xs:element ref="tns:PMTextColorReference" />
+      <xs:element ref="tns:PMObjectFontReference" />
+      <xs:element ref="tns:PMDrawStyle" />
+      <xs:element ref="tns:PMPersistentBoxNumber" />
+      <xs:element ref="tns:PMUowIdNumber" />
+      <xs:element ref="tns:PMActivityRef" />
+      <xs:element ref="tns:PMBoxCoordinates" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMBoxPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMBoxPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMNodePropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMPointLocation" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMNodePropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMNodePropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMTextBlockPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMIsPurposeFlag" />
+      <xs:element ref="tns:PMIsViewpointFlag" />
+      <xs:element ref="tns:PMTextBlockColorReference" />
+      <xs:element ref="tns:PMTextBlockFontRef" />
+      <xs:element ref="tns:PMTextBoundingBox" />
+      <xs:element ref="tns:PMTextString" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMTextBlockPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMTextBlockPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMTunnelPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMExternalRef" />
+      <xs:element ref="tns:PMOffpageRef" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMTunnelPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMTunnelPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMRulerPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMRulerDisplayFlags" />
+      <xs:element ref="tns:PMRulerLabelColorRef" />
+      <xs:element ref="tns:PMRulerUnitsColorRef" />
+      <xs:element ref="tns:PMRulerMinorDivColorRef" />
+      <xs:element ref="tns:PMRulerMajorDivColorRef" />
+      <xs:element ref="tns:PMRulerBKColorRef" />
+      <xs:element ref="tns:PMRulerStyle" />
+      <xs:element ref="tns:PMRulerUnitsLabelFontRef" />
+      <xs:element ref="tns:PMRulerUnitsTextFontRef" />
+      <xs:element ref="tns:PMRulerUnitsUDPRef" />
+      <xs:element ref="tns:PMRulerMinorIncDbl" />
+      <xs:element ref="tns:PMRulerMajorIncDbl" />
+      <xs:element ref="tns:PMRulerMinorIncLong" />
+      <xs:element ref="tns:PMRulerMajorIncLong" />
+      <xs:element ref="tns:PMRulerRightValueDbl" />
+      <xs:element ref="tns:PMRulerRightValueDate" />
+      <xs:element ref="tns:PMRulerRightValueLong" />
+      <xs:element ref="tns:PMRulerLeftValueDbl" />
+      <xs:element ref="tns:PMRulerLeftValueDate" />
+      <xs:element ref="tns:PMRulerLeftValueLong" />
+      <xs:element ref="tns:PMRulerLabel" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMRulerPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMRulerPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMERwinEntityPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMBPwinGeneratedFlag" />
+      <xs:element ref="tns:PMBPWinOnlyFlag" />
+      <xs:element ref="tns:PMDefinitionString" />
+      <xs:element ref="tns:PMERModelRef" />
+      <xs:element ref="tns:PMEREntityId" />
+      <xs:element ref="tns:Name" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMERwinEntityPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMERwinEntityPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMERwinAttributePropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMERDataType" />
+      <xs:element ref="tns:PMBPwinGeneratedFlag" />
+      <xs:element ref="tns:PMBPWinOnlyFlag" />
+      <xs:element ref="tns:PMDefinitionString" />
+      <xs:element ref="tns:PMParentname" />
+      <xs:element ref="tns:PMERAttributeId" />
+      <xs:element ref="tns:Name" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMERwinAttributePropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMERwinAttributePropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMExternalPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMExternalNumber" />
+      <xs:element ref="tns:PMEntityRef" />
+      <xs:element ref="tns:PMArrowRef" />
+      <xs:element ref="tns:PMBoxType" />
+      <xs:element ref="tns:PMRRGAssocRefList" />
+      <xs:element ref="tns:PMBackgroundColorReference" />
+      <xs:element ref="tns:PMTextColorReference" />
+      <xs:element ref="tns:PMTitleColorReference" />
+      <xs:element ref="tns:PMObjectsString" />
+      <xs:element ref="tns:PMConstraintsString" />
+      <xs:element ref="tns:PMFacts" />
+      <xs:element ref="tns:PMDescriptionString" />
+      <xs:element ref="tns:PMSource" />
+      <xs:element ref="tns:PMNote" />
+      <xs:element ref="tns:PMAuthor" />
+      <xs:element ref="tns:PMStatusString" />
+      <xs:element ref="tns:PMDefinitionString" />
+      <xs:element ref="tns:Name" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMExternalPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMExternalPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMFontPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMFontSize" />
+      <xs:element ref="tns:PMLogfont" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMFontPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMFontPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMActivityPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMParentActivityRef" />
+      <xs:element ref="tns:PMOverrideCostsFlag" />
+      <xs:element ref="tns:PMDuration" />
+      <xs:element ref="tns:PMFrequency" />
+      <xs:element ref="tns:PMBoxType" />
+      <xs:element ref="tns:PMRRGAssocRefList" />
+      <xs:element ref="tns:PMBackgroundColorReference" />
+      <xs:element ref="tns:PMTextColorReference" />
+      <xs:element ref="tns:PMTitleColorReference" />
+      <xs:element ref="tns:PMObjectsString" />
+      <xs:element ref="tns:PMConstraintsString" />
+      <xs:element ref="tns:PMFacts" />
+      <xs:element ref="tns:PMDescriptionString" />
+      <xs:element ref="tns:PMSource" />
+      <xs:element ref="tns:PMNote" />
+      <xs:element ref="tns:PMAuthor" />
+      <xs:element ref="tns:PMStatusString" />
+      <xs:element ref="tns:PMDefinitionString" />
+      <xs:element ref="tns:Name" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMActivityPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMActivityPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMActivityCostPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMOverrideLeavesFlag" />
+      <xs:element ref="tns:PMCostCenterRef" />
+      <xs:element ref="tns:PMCost" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMActivityCostPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMActivityCostPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMNodeTreePropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMBoxDisplayFlags" />
+      <xs:element ref="tns:PMOrthogonalFlag" />
+      <xs:element ref="tns:PMBitmapHeight" />
+      <xs:element ref="tns:PMDefaultBoxWidth" />
+      <xs:element ref="tns:PMNumLevels" />
+      <xs:element ref="tns:PMNumberInBoxFlag" />
+      <xs:element ref="tns:PMDrawBoxFlag" />
+      <xs:element ref="tns:PMBulletLastFlag" />
+      <xs:element ref="tns:PMBoxWidthPrefFlag" />
+      <xs:element ref="tns:PMDrawBorderFlag" />
+      <xs:element ref="tns:PMZoomScale" />
+      <xs:element ref="tns:PMDisplayOffset" />
+      <xs:element ref="tns:PMVersion" />
+      <xs:element ref="tns:PMSwimLaneRoleRef" />
+      <xs:element ref="tns:PMSwimLaneUDPRef" />
+      <xs:element ref="tns:PMSwimLaneRoleType" />
+      <xs:element ref="tns:PMBitmapJustification" />
+      <xs:element ref="tns:PMTxtHgtToBmpHgt" />
+      <xs:element ref="tns:PMHdrFtrType5" />
+      <xs:element ref="tns:PMHdrFtrType4" />
+      <xs:element ref="tns:PMHdrFtrType3" />
+      <xs:element ref="tns:PMHdrFtrType2" />
+      <xs:element ref="tns:PMHdrFtrType1" />
+      <xs:element ref="tns:PMHdrFtrType0" />
+      <xs:element ref="tns:PMDrawStyle" />
+      <xs:element ref="tns:PMMethodologyCode" />
+      <xs:element ref="tns:PMCurrentDiagram" />
+      <xs:element ref="tns:PMDefaultArrowFontRef" />
+      <xs:element ref="tns:PMDefaultActivityFontRef" />
+      <xs:element ref="tns:PMParentDiagramRef" />
+      <xs:element ref="tns:PMRepresentedActivityRef" />
+      <xs:element ref="tns:PMBorderUserFontRef" />
+      <xs:element ref="tns:PMBorderSystemDefaultFontRef" />
+      <xs:element ref="tns:PMTextBlockFontRef" />
+      <xs:element ref="tns:PMArcRadius" />
+      <xs:element ref="tns:PMActiveAreaDimension" />
+      <xs:element ref="tns:PMOriginOffset" />
+      <xs:element ref="tns:PMDimension" />
+      <xs:element ref="tns:PMTextFontRef" />
+      <xs:element ref="tns:PMTextString" />
+      <xs:element ref="tns:PMDecompositionNumber" />
+      <xs:element ref="tns:PMCNumber" />
+      <xs:element ref="tns:PMDiagramNumber" />
+      <xs:element ref="tns:PMStatusString" />
+      <xs:element ref="tns:PMPageNumberString" />
+      <xs:element ref="tns:PMTitleFontRef" />
+      <xs:element ref="tns:PMSystemLastRevisionDate" />
+      <xs:element ref="tns:PMUserLastRevisionDate" />
+      <xs:element ref="tns:PMCreatedDate" />
+      <xs:element ref="tns:PMShowIDEF0TitleFlag" />
+      <xs:element ref="tns:PMShowIDEF0KitFlag" />
+      <xs:element ref="tns:PMUsedAtString" />
+      <xs:element ref="tns:PMDecompositionOfRef" />
+      <xs:element ref="tns:Name" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMNodeTreePropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMNodeTreePropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMOrgChartRowPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMOrgRowId" />
+      <xs:element ref="tns:PMMaxRowBoxCount" />
+      <xs:element ref="tns:PMRowBoxCount" />
+      <xs:element ref="tns:PMFirstBoxInRow" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMOrgChartRowPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMOrgChartRowPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMOrgChartBoxPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMOrgBoxId" />
+      <xs:element ref="tns:PMTextColorReference" />
+      <xs:element ref="tns:PMShapeColorReference" />
+      <xs:element ref="tns:PMOrgBoxBKColorReference" />
+      <xs:element ref="tns:PMRRGAssocRef" />
+      <xs:element ref="tns:PMBoxCoordinates" />
+      <xs:element ref="tns:PMOrgBoxParentId" />
+      <xs:element ref="tns:PMOrgBoxHasParent" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMOrgChartBoxPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMOrgChartBoxPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMReferentPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMEntityRef" />
+      <xs:element ref="tns:PMArrowRef" />
+      <xs:element ref="tns:PMBoxType" />
+      <xs:element ref="tns:PMRRGAssocRefList" />
+      <xs:element ref="tns:PMBackgroundColorReference" />
+      <xs:element ref="tns:PMTextColorReference" />
+      <xs:element ref="tns:PMTitleColorReference" />
+      <xs:element ref="tns:PMObjectsString" />
+      <xs:element ref="tns:PMConstraintsString" />
+      <xs:element ref="tns:PMFacts" />
+      <xs:element ref="tns:PMDescriptionString" />
+      <xs:element ref="tns:PMSource" />
+      <xs:element ref="tns:PMNote" />
+      <xs:element ref="tns:PMAuthor" />
+      <xs:element ref="tns:PMStatusString" />
+      <xs:element ref="tns:PMDefinitionString" />
+      <xs:element ref="tns:Name" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMReferentPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMReferentPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMUDPCategoryPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMSequenceNumber" />
+      <xs:element ref="tns:PMDispInArrowRptFlag" />
+      <xs:element ref="tns:PMDispInActivityRptFlag" />
+      <xs:element ref="tns:PMDispInArrowDispFlag" />
+      <xs:element ref="tns:PMDispInActivityDispFlag" />
+      <xs:element ref="tns:Name" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMUDPCategoryPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMUDPCategoryPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMUDPDefinitionPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMUDPMultiSelectFlag" />
+      <xs:element ref="tns:PMUDPDescription" />
+      <xs:element ref="tns:PMSequenceNumber" />
+      <xs:element ref="tns:PMDateStyleFlag" />
+      <xs:element ref="tns:PMPrecision" />
+      <xs:element ref="tns:PMValueType" />
+      <xs:element ref="tns:PMCategories" />
+      <xs:element ref="tns:Name" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMUDPDefinitionPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMUDPDefinitionPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMJunctionPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMJunctionBoxNumber" />
+      <xs:element ref="tns:PMJunctionBoxTypeString" />
+      <xs:element ref="tns:PMBoxType" />
+      <xs:element ref="tns:PMRRGAssocRefList" />
+      <xs:element ref="tns:PMBackgroundColorReference" />
+      <xs:element ref="tns:PMTextColorReference" />
+      <xs:element ref="tns:PMTitleColorReference" />
+      <xs:element ref="tns:PMObjectsString" />
+      <xs:element ref="tns:PMConstraintsString" />
+      <xs:element ref="tns:PMFacts" />
+      <xs:element ref="tns:PMDescriptionString" />
+      <xs:element ref="tns:PMSource" />
+      <xs:element ref="tns:PMNote" />
+      <xs:element ref="tns:PMAuthor" />
+      <xs:element ref="tns:PMStatusString" />
+      <xs:element ref="tns:PMDefinitionString" />
+      <xs:element ref="tns:Name" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMJunctionPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMJunctionPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMPalettePropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMVersion" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMPalettePropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMPalettePropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMColorPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMBlueIntensity" />
+      <xs:element ref="tns:PMGreenIntensity" />
+      <xs:element ref="tns:PMRedIntensity" />
+      <xs:element ref="tns:PMSequenceNumber" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMColorPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMColorPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMBitmapPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMBitmapData" />
+      <xs:element ref="tns:NameCopy" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMBitmapPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMBitmapPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMRoleGroupPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMDescriptionStringCopy" />
+      <xs:element ref="tns:PMBitmapRef" />
+      <xs:element ref="tns:PMShapeId" />
+      <xs:element ref="tns:PMImportance" />
+      <xs:element ref="tns:NameCopy" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMRoleGroupPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMRoleGroupPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMRolePropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMDescriptionStringCopy" />
+      <xs:element ref="tns:PMBitmapRef" />
+      <xs:element ref="tns:PMShapeId" />
+      <xs:element ref="tns:PMImportance" />
+      <xs:element ref="tns:NameCopy" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMRolePropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMRolePropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMResourcePropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMDescriptionStringCopy" />
+      <xs:element ref="tns:NameCopy" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMResourcePropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMResourcePropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMRRGAssociationPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMResourceRef" />
+      <xs:element ref="tns:PMRoleRef" />
+      <xs:element ref="tns:PMRoleTypeRef" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMRRGAssociationPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMRRGAssociationPropsGroup" />
+  </xs:complexType>
+  <xs:group name="PMERwinModelPropsGroup">
+    <xs:choice>
+      <xs:element ref="tns:PMERModelMMId" />
+      <xs:element ref="tns:Name" />
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PMERwinModelPropsList">
+    <xs:group minOccurs="0" maxOccurs="unbounded" ref="tns:PMERwinModelPropsGroup" />
+  </xs:complexType>
+  <xs:element name="PMCRUD">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMCRUDProps" type="tns:PMCRUDPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMIRUN">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMIRUNProps" type="tns:PMIRUNPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMAssociation">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMAssociationProps" type="tns:PMAssociationPropsList" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PMCRUD_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMCRUD" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMIRUN_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMIRUN" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMUDPValue">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMUDPValueProps" type="tns:PMUDPValuePropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMUDPInstance">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMUDPInstanceProps" type="tns:PMUDPInstancePropsList" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PMUDPValue_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMUDPValue" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMArrow">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMArrowProps" type="tns:PMArrowPropsList" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PMAssociation_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMAssociation" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMUDPInstance_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMUDPInstance" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMCostCenter">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMCostCenterProps" type="tns:PMCostCenterPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDataStore">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMDataStoreProps" type="tns:PMDataStorePropsList" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PMUDPInstance_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMUDPInstance" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMArrowSegment">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMArrowSegmentProps" type="tns:PMArrowSegmentPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMArrowLabel">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMArrowLabelProps" type="tns:PMArrowLabelPropsList" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PMArrowSegment_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMArrowSegment" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMUDPInstance_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMUDPInstance" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBorder">
+    <xs:complexType>
+      <xs:all />
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBox">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMBoxProps" type="tns:PMBoxPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMNode">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMNodeProps" type="tns:PMNodePropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMTextBlock">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMTextBlockProps" type="tns:PMTextBlockPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMTunnel">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMTunnelProps" type="tns:PMTunnelPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRuler">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMRulerProps" type="tns:PMRulerPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMDiagram">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMDiagramProps" type="tns:PMDiagramPropsList" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PMArrowLabel_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMArrowLabel" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMBorder_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMBorder" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMBox_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMBox" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMNode_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMNode" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMTextBlock_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMTextBlock" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMTunnel_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMTunnel" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMRuler_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMRuler" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMERwinAttribute">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMERwinAttributeProps" type="tns:PMERwinAttributePropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMERwinEntity">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMERwinEntityProps" type="tns:PMERwinEntityPropsList" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PMERwinAttribute_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMERwinAttribute" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMExternal">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMExternalProps" type="tns:PMExternalPropsList" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PMUDPInstance_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMUDPInstance" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMFont">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMFontProps" type="tns:PMFontPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMActivityCost">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMActivityCostProps" type="tns:PMActivityCostPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMActivity">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMActivityProps" type="tns:PMActivityPropsList" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PMActivityCost_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMActivityCost" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMUDPInstance_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMUDPInstance" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMOrgChartRow">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMOrgChartRowProps" type="tns:PMOrgChartRowPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMOrgChartBox">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMOrgChartBoxProps" type="tns:PMOrgChartBoxPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMNodeTree">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMNodeTreeProps" type="tns:PMNodeTreePropsList" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PMTextBlock_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMTextBlock" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMOrgChartRow_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMOrgChartRow" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMOrgChartBox_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMOrgChartBox" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMReferent">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMReferentProps" type="tns:PMReferentPropsList" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PMUDPInstance_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMUDPInstance" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMUDPCategory">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMUDPCategoryProps" type="tns:PMUDPCategoryPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMUDPDefinition">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMUDPDefinitionProps" type="tns:PMUDPDefinitionPropsList" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PMUDPValue_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMUDPValue" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMJunction">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMJunctionProps" type="tns:PMJunctionPropsList" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PMUDPInstance_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMUDPInstance" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMColor">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMColorProps" type="tns:PMColorPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMPalette">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMPaletteProps" type="tns:PMPalettePropsList" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PMColor_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMColor" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMBitmap">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMBitmapProps" type="tns:PMBitmapPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRoleGroup">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMRoleGroupProps" type="tns:PMRoleGroupPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRole">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMRoleProps" type="tns:PMRolePropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMResource">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMResourceProps" type="tns:PMResourcePropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMRRGAssociation">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMRRGAssociationProps" type="tns:PMRRGAssociationPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMERwinModel">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMERwinModelProps" type="tns:PMERwinModelPropsList" />
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PMModel">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" name="PMModelProps" type="tns:PMModelPropsList" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PMArrow_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMArrow" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMCostCenter_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMCostCenter" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMDataStore_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMDataStore" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMDiagram_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMDiagram" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMERwinEntity_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMERwinEntity" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMExternal_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMExternal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMFont_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMFont" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMActivity_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMActivity" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMNodeTree_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMNodeTree" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMReferent_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMReferent" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMUDPCategory_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMUDPCategory" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMUDPDefinition_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMUDPDefinition" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMJunction_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMJunction" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMPalette_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMPalette" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMBitmap_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMBitmap" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMRoleGroup_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMRoleGroup" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMRole_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMRole" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMResource_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMResource" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMRRGAssociation_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMRRGAssociation" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PMERwinModel_Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:PMERwinModel" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="id" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessModeler">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="tns:PMModel" />
+      </xs:sequence>
+      <xs:attribute name="FileVersion" use="required">
+        <xs:simpleType>
+          <xs:annotation>
+            <xs:documentation>[Major Version].[Minor version].[Build Number - optional]</xs:documentation>
+          </xs:annotation>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]\.[0-9](\.[0-9]{4})?" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="FilteredOutput" use="optional">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true" />
+            <xs:enumeration value="false" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

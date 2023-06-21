@@ -1,0 +1,8 @@
+DeleteNonScalarValue = 0, 0, 0, 0, C, 154, 154, 822, 784, C
+ModifyObjectForm = 0, 0, 0, 0, C, 176, 176, 844, 806, C
+NewProject = 0, 0, 0, 0, C, 198, 198, 866, 828, C
+ProjectView = 0, 0, 0, 0, C, 220, 220, 888, 850, C
+ReallocateArrayForm = 0, 0, 0, 0, C, 242, 242, 910, 872, C
+SelectProject = 0, 0, 0, 0, C, 264, 264, 932, 894, C
+StartModule = 132, 132, 800, 762, Z
+UtilFunctions = 154, 154, 822, 784, C

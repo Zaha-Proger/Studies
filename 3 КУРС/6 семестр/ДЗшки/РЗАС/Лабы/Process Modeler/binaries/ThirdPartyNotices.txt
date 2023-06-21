@@ -1,0 +1,4 @@
+The Sentry Spelling-Checker Engine
+Copyright 1993-1997 Wintertree Software Inc.
+
+Portions copyright Softel vdm, Inc.

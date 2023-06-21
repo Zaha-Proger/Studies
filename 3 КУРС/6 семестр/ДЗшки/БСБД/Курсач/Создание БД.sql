@@ -1,0 +1,3 @@
+use master
+CREATE DATABASE MedExamSys;
+ALTER AUTHORIZATION ON DATABASE::MedExamSys TO [sa];
